@@ -1,4 +1,4 @@
-ECHO is on.
+add the 1rd line
 add the 2rd line
 add the 3rd line
 add the 4rd line
