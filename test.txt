@@ -1,1 +1,2 @@
 ECHO is on.
+add the 3rd line
