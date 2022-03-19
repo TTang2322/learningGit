@@ -5,3 +5,26 @@ https://www.youtube.com/watch?v=sUicrnHwA0s&ab_channel=DataDaft
 
 LeetCode
 https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
+
+def lengthOfLongestSubstring(self, s: str) -> int:
+            
+    if not s:
+        return 0
+    else:
+        window = set()
+        left = 0
+        cur_len = 0
+        max_len = 0
+        for i in range(len(s)):
+            cur_len += 1
+            
+            # move sliding window as duplicated letter appear in window
+            while s[i] in window:
+                window.remove(s[left])
+                left += 1
+                cur_len -= 1
+        
+            window.add(s[i])
+            max_len = cur_len if cur_len > max_len else max_len
+            
+    return max_len
