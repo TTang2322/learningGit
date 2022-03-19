@@ -1,0 +1,7 @@
+1. sliding window
+
+Youbute
+https://www.youtube.com/watch?v=sUicrnHwA0s&ab_channel=DataDaft
+
+LeetCode
+https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
