@@ -1,0 +1,78 @@
+Given a string s, find the length of the longest substring without repeating characters.
+
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
+Tips:
+Prefer to use set instead of list
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
+        
+        window = []
+        len_ls = set()
+        
+        for letter in s:
+            
+            if letter not in window:
+                window.append(letter)
+                
+            else:
+                # removeAll(window)
+                # len_subString = len(window)
+                len_ls.add(len(window))
+                
+                window = window[window.index(letter)+1 :]
+                
+                window.append(letter)
+                
+            len_ls.add(len(window))
+                
+        return max(len_ls)
+        
+    # def removeAll(self, window：set) ->
+
+        # if not s:
+        #     return 0
+        # left = 0
+        # lookup = set()
+        # n = len(s)
+        # max_len = 0
+        # cur_len = 0
+        # for i in range(n):
+        #     cur_len += 1
+        #     while s[i] in lookup:
+        #         lookup.remove(s[left])
+        #         left += 1
+        #         cur_len -= 1
+        #     if cur_len > max_len:max_len = cur_len
+        #     lookup.add(s[i])
+        # return max_len
+        
+        
+#         if not s:
+#             return 0
+#         else:
+#             window = set()
+#             left = 0
+#             cur_len = 0
+#             max_len = 0
+#             for i in range(len(s)):
+#                 cur_len += 1
+                
+#                 # move sliding window as duplicated letter appear in window
+#                 while s[i] in window:
+#                     window.remove(s[left])
+#                     left += 1
+#                     cur_len -= 1
+            
+#                 window.add(s[i])
+#                 max_len = cur_len if cur_len > max_len else max_len
+                
+#         return max_len

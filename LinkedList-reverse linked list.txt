@@ -1,0 +1,81 @@
+
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        cur = head
+        pre = next = None
+        
+        while cur:
+            next = cur.next
+            cur.next = pre
+            pre = cur
+            cur = next
+            
+        return pre
+        
+        
+#         stack = list()
+#         while head:
+#             stack.append(head.val)
+#             head = head.next
+        
+#         head = cur = ListNode()
+         
+#         while stack:
+#             cur.next = ListNode(stack.pop())
+#             cur = cur.next
+        
+#         return head.next
+  
+
+#         val_ls = []
+#         while head:
+#             val_ls.append(head.val)
+#             head = head.next
+            
+#         # print('=-'*5)
+#         # print(val_ls)
+        
+#         # for i in range(len(val_ls)-1,-1,-1):
+#         #     print(i)
+#         #     print(val_ls[i])
+        
+        
+#         head = cur = ListNode(0)    
+            
+#         for i in range(len(val_ls)-1,-1,-1):
+            
+#             cur.next = ListNode(val_ls[i])
+#             cur = cur.next
+#             # cur = ListNode(val)
+#             # cur.next = listNode()
+            
+#         return head.next
+        
+#         if not head.val:
+#             print(1)
+#             return None
+#         else:
+#             pre_node = next_node = None
+            
+#             while head:
+#                 next_node = head.next
+#                 head.next = pre_node
+#                 pre_node = head
+#                 head = next_node
+        
+#         # next_node.next = head
+        
+#         return next_node
+        

@@ -1,0 +1,79 @@
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+
+
+Input: head = [1], n = 1
+Output: []
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+#     def reverse(self, head):
+#         pre = next = None
+#         cur = head
+
+#         while cur:
+#             next = cur.next
+#             cur.next = pre
+#             pre = cur
+#             cur = next
+
+#         return pre
+    
+#     def getLen(self, head):
+#         len_linkedList = 0
+        
+#         while head:
+#             len_linkedList += 1
+#             head = head.next
+            
+#         return len_linkedList
+        
+    
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy =ListNode(0,head)
+        stack = list()
+        cur = dummy
+        # cur = head
+        
+        while cur:
+            stack.append(cur)
+            cur = cur.next
+            
+        for i in range(n):
+            stack.pop()
+            
+        pre_node = stack[-1]
+        pre_node.next = pre_node.next.next
+        # stack[-1].next = stack[-1].next.next
+        
+    
+        return dummy.next
+
+        
+        # stage 1: reverse linked list
+        
+#         len_linkedList = self.getLen(head)
+#         print(len_linkedList)
+        
+#         dummy = ListNode(0,head)
+#         cur = dummy
+        
+#         for i in range(1, len_linkedList - n + 1):
+#             cur = cur.next
+            
+#         cur.next = cur.next.next
+        
+#         return dummy.next
+        
+
+
+Tips:
+
+Questions about linked list
+https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
