@@ -1,0 +1,71 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def __init__(self):
+        self.res = list()
+        
+#     def postorder(self, root: 'Node') -> List[int]:
+#         # print(type(root.children))
+#         if not root:
+#             return []
+        
+#         if root:
+#             for ch in root.children:
+#                 self.postorder(ch)
+#                 # self.res.append(ch.val)
+                
+#         self.res.append(root.val)
+#         return self.res
+
+#     def postorder(self, root: 'Node') -> List[int]:
+#         if not root:
+#             return []
+        
+#         while root:
+#             print(root.val)
+#             print(len(root.children))
+#             self.res.append(root.val)
+#             # if len(root.children) >0 :
+#             children = root.children
+#             if len(children) > 0:
+#                 for ch in children:
+#                     self.postorder(ch)
+#             else:
+#                 break
+#         # self.res.reverse()
+        
+#         return self.res.reverse()
+        
+    
+    def postorder(self, root: 'Node') -> List[int]:
+
+        def preorder(root: 'Node') -> List[int]:
+            if not root:
+                return []
+
+            if root:
+                for ch in root.children:
+                    self.postorder(ch)
+
+            self.res.append(root.val)
+
+            return self.res
+        
+        
+        def fun_1(root):
+            res_2 = preorder(root)
+            print(res_2)
+            return res_2
+            
+        res_2 = fun_1(root)
+        # print('=->'*3)
+        # print(res_2)
+        # res_2.reverse()
+        # print(res_2)
+        return res_2

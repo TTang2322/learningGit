@@ -1,0 +1,65 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        # BST traversal
+        
+        # res_dict = dict()
+        res_list = list()
+        res_set = set()
+        def Traversal_BST(node):
+            if not node:
+                return []
+
+            print(node.val)
+            
+            res_list.append(node.val)    
+            res_set.add(node.val)
+            
+            Traversal_BST(node.left)
+            Traversal_BST(node.right)
+            
+        Traversal_BST(root)
+        # res_list.append(Traversal_BST(root))
+        # res_set.append(Traversal_BST(root))
+        
+        Counter_dict = dict()
+        for val in res_set:
+            Counter_dict[val] = res_list.count(val)
+            
+        print(list(Counter_dict.keys()))
+        # Final_res = dict()
+        
+        for key, value in Counter_dict.items():
+            print('=->'*3)
+            print(key, value)
+            
+        Final_res = list()    
+        Counter_list = list(Counter_dict.values())
+        Counter_list.sort(reverse=True)
+        max_counter = Counter_list[0]
+        
+        for key, value in Counter_dict.items():
+            if value == max_counter:
+                Final_res.append(key)
+        
+#         for key, value in Counter_dict.items():
+#             if not Final_res:
+#                 Final_res[key] = value
+#                 # pre_key = key
+                
+                
+#             cur_key = list(Final_res.keys())[0]
+            
+#             if value > Final_res[cur_key]:
+#                 Final_res.pop(cur_key)
+#                 Final_res[key] = value
+                
+#             elif value == Final_res[cur_key]:
+#                 Final_res[key] = value
+                
+        return Final_res

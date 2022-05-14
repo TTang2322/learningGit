@@ -1,0 +1,76 @@
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+        if head is None:
+            return head
+
+        queue = list()
+        cur = head
+        while cur:
+            queue.append(cur)
+            cur = cur.next
+
+        # print(queue)
+        
+        # return head
+        
+            
+        # tmp = -1
+        dummy = ListNode(-100,head)
+        cur = dummy
+
+        for node in queue:
+            if cur.val != node.val:
+                print(node.val)
+                cur.next = node
+                cur = node
+                node.next = None
+                # tmp = cur.val
+            # else:
+            #     continue
+                
+            
+        return dummy.next        
+        
+        
+#         if head is None:
+#             return head
+        
+#         current = head
+        
+#         while current.next is not None:
+#             if current.next.val == current.val:
+#                 current.next = current.next.next
+#             else:
+#                 current = current.next
+        
+#         return head
+        
+#         if not head:
+#             return None
+        
+#         dummy = ListNode(0,head)
+#         cur_node = head
+#         # next_node = cur_node.next
+        
+#         while cur_node.next is not None:
+        
+#             if cur_node.val == cur_node.next.val:
+#             # print(cur_node.val, next_node.val, next_node.next.val)
+#                 cur_node.next = cur_node.next.next
+#             else:
+#                 cur_node = cur_node.next
+#         # next_node = next_node.next
+        
+#         return dummy.next
+

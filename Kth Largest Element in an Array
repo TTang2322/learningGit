@@ -1,0 +1,18 @@
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+#         solution 2: max heap
+        from heapq import heapify, heappop
+        nums = [(-1) * i for i in nums]
+    
+        heapify(nums)
+        
+        k_th_largest = 0
+        
+        for i in range(k):
+            k_th_largest = heappop(nums)
+        
+        return k_th_largest*(-1)
+        
+#         # solution 1:brute force
+#         nums.sort(reverse=True)
+#         return nums[k-1]

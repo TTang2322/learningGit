@@ -1,0 +1,65 @@
+What should you expect in a machine learning interview?
+
+data collection, problem formulation, model creation, implementation of models, and enhancement of models.
+how to train machine learning models and how to deploy models with different tools. 
+==================
+
+
+Food delivery system design at scale
+https://miro.medium.com/max/630/1*LL5ghd3kiSSoUnoo6G8rng.png
+
+
+==================
+6 steps approach
+
+problem statement, identify metrics, identify requirements, train and evaluate models, design high level system, scale the design
+
+1.problem statement, 
+state the correct problems(Asking questions) with interviewers
+
+Is the output of the feed in chronological order?
+How do we want to balance feeds versus sponsored ads, etc.?
+==================
+
+2.identify metrics
+During the development phase, we need to quickly test model performance using offline metrics. 
+
+logloss and AUC for binary classification, or RMSE and MAPE for forecast.
+
+During the online test, ??????????????\
+==================
+
+3.identify requirements
+Training requirements
+data collection, feature engineering, feature selection, and loss function.
+
+How do we train models to handle an imbalance class?
+
+Inference requirements
+
+How do we monitor and make sure models don’t go stale?
+How do we design inference components to provide high availability and low latency?
+run inference with low latency (<100ms) and scale our system to serve millions of users.
+==================
+
+4.train and evaluate models
+three components: feature engineering, feature selection, and models.
+
+For example, in Rental Search Ranking, we will discuss if we should use ListingID as embedding features. In Estimate Food Delivery Time, we will discuss how to handle the latitude and longitude features efficiently.
+==================
+
+5.design high level system
+think about the system components and how data flows through each of them. The goal of this section is to identify a minimal, viable design to demonstrate a working system. We need to explain why we decided to have these components and what their roles are.
+
+when designing Video Recommendation systems, we would need two separate components: the Video Candidate Generation Service and the Ranking Model Service.
+==================
+
+6.scale the design
+it’s crucial to understand system bottlenecks and how to address these bottlenecks.
+
+Which components are likely to be overloaded?
+How can we scale the overloaded components?
+Is the system good enough to serve millions of users?
+How we would handle some components becoming unavailable, etc.
+==================
+

@@ -1,0 +1,104 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+
+        def validate(node, lower=float('-inf'), upper=float('inf')):
+
+            if not node:
+                return True
+            if node.val <= lower or node.val >= upper:
+                return False
+
+            if not validate(node.left, lower, node.val):
+                return False
+            if not validate(node.right,node.val, upper):
+                return False
+
+            return True
+
+        return validate(root)    
+    
+#     def isValidBST(self, root: TreeNode) -> bool:
+#         def helper(node, lower = float('-inf'), upper = float('inf')) -> bool:
+#             if not node:
+#                 return True
+            
+#             val = node.val
+#             if val <= lower or val >= upper:
+#                 return False
+
+#             if not helper(node.right, val, upper):
+#                 return False
+#             if not helper(node.left, lower, val):
+#                 return False
+#             return True
+
+#         return helper(root)
+    
+    # def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        
+#         def helper(node,lower=float('-inf'),upper=float('inf')):
+#             if not node:
+#                 return True
+#             val = node.val
+#             if val <= lower or val >= upper:
+#                 return False
+
+#             if not helper(node.left, lower, val):
+#                 return False
+            
+#             if not helper(node.right,val,upper):
+#                 return False
+            
+#             return True
+        
+#         return helper(root)
+
+    # def __init__(self):
+    #     self.left_max = None
+    #     self.right_min = None
+
+        
+        
+#         # if root.left is None and root.right is None:
+#         #     return 'true'
+        
+#         if root.left is not None or root.right is not None:
+#             print(root.val)
+#             # print(root.left.val)
+#             # print(root.right.val)
+#             print('No 20')
+#             left_max = None
+#             if root.left is not None:
+#                 self.left_max = root.left.val if root.left.val > root.val else root.val
+#             right_min =None
+#             if root.right is not None:
+#                 self.right_min = root.right.val if root.right.val <root.val else root.val
+#             print('No 23')
+#             if root.val >= root.left.val and root.val < root.right.val:
+#                 print(root.left.val, root.right.val)
+#                 print('No 26')
+#                 self.isValidBST(root.left) and self.isValidBST(root.right)
+                
+#             else:
+#                 print('No 30')
+#                 return 'false'
+            
+#             if root.val >= self.left_max and root.val < self.right_min:
+#                 print(root.val)
+#                 print(self.left_max)
+#                 print(self.right_min)
+#                 print('No 31')
+
+#                 return 'true'
+    
+    
+        
+            
+        

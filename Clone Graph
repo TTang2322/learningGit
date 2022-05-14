@@ -1,0 +1,74 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+#         # BFS
+        
+#         if not node: return None
+        
+#         # copied_node = Node(node.val)
+        
+#         from collections import deque
+#         queue = deque([node])
+        
+#         visited = list([node])
+        
+#         while queue:
+            
+#             cur_node = queue.popleft()
+#             print(cur_node.val)
+            
+#             for neighbor in cur_node.neighbors:
+#                 if  neighbor not in visited:
+#                     queue.append(neighbor)
+#                     visited.append(neighbor)
+            
+#         return None
+            
+        
+        
+        
+# hard copy
+        
+        visited = dict()
+        def dfs(node, visited):
+            
+            # if node is none
+            if not node: return None
+            
+            # if node is not none
+            #situation1 : node is copied
+            if node in visited:
+                # ....
+                # pass
+                print('{} has been visited'.format(node.val))
+                return visited[node]
+
+            #situation2 : node is not copied
+            #step 1: copy node
+            print('=->'*3)
+            print(node.val)
+            copied_node = Node(node.val)
+            visited[node] = copied_node
+            #step 2: build relationship between node and its neighbors
+            for neighbor in node.neighbors:
+                # copied_neighbor = Node(neighbor.val)
+                # visited[neighbor] = copied_neighbor
+                print(neighbor.val)
+                copied_neighbor = dfs(neighbor,visited)
+                visited[node].neighbors.append(copied_neighbor)
+
+            
+            return (visited[node])
+                    
+            
+            
+        return dfs(node,visited)
+        
+        

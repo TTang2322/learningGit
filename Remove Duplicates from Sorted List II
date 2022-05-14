@@ -1,0 +1,40 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #stage 1: statck to store all node.val
+        #stage 2: remove all duplicated items from stack
+
+        stack_reference = list()
+        cur = head
+        while cur:
+            stack_reference.append(cur.val)
+            cur = cur.next
+        
+        stack_without_duplicated_items = list()
+        for item in stack_reference:
+            if stack_reference.count(item) == 1:
+                stack_without_duplicated_items.append(item)
+        
+        
+        
+#         while cur:
+#             if cur.val in stack:
+#                 stack.remove(cur.val)
+#             else:
+#                 stack.append(cur.val)
+        
+        
+        #stage 3: create linked list from resulted stack
+        
+        dummy = ListNode(0)
+        cur = dummy
+        
+        for item in stack_without_duplicated_items:
+            cur.next = ListNode(item,None)
+            cur = cur.next
+        
+        return dummy.next
